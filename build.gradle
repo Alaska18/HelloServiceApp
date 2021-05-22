@@ -25,3 +25,11 @@ test {
 application {
     mainClassName = "helloservice.HelloServiceApp"
 }
+jar {
+    manifest {
+        attributes(
+
+                'Main-Class': 'helloservice.HelloWorlApp'
+        )
+    }
+}
