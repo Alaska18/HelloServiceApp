@@ -23,5 +23,5 @@ test {
     useJUnitPlatform()
 }
 application {
-    mainClassName = "HelloServiceApp"
+    mainClassName = "helloservice.HelloServiceApp"
 }

@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\HelloServiceApp-1.0-SNAPSHOT.jar;%APP_HOME%\lib\sla
 
 
 @rem Execute HelloServiceApp
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %HELLO_SERVICE_APP_OPTS%  -classpath "%CLASSPATH%" HelloServiceApp %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %HELLO_SERVICE_APP_OPTS%  -classpath "%CLASSPATH%" helloservice.HelloServiceApp %*
 
 :end
 @rem End local scope for the variables with windows NT shell
