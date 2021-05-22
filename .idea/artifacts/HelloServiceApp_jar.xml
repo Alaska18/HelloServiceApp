@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="HelloServiceApp:jar">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="HelloServiceApp_jar.jar">
+      <element id="archive" name="HelloServiceApp.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
