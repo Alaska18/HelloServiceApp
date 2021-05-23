@@ -23,13 +23,13 @@ test {
     useJUnitPlatform()
 }
 application {
-    mainClassName = "helloservice.HelloServiceApp"
+    mainClassName = "HelloServiceApp"
 }
 jar {
     manifest {
         attributes(
 
-                'Main-Class': 'HelloWorlApp'
+                'Main-Class': 'HelloServiceApp'
         )
     }
 }
