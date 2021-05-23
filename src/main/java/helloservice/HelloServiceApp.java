@@ -1,6 +1,12 @@
 package helloservice;
 
 import com.slack.api.Slack;
+import com.slack.api.bolt.App;
+import com.slack.api.bolt.context.builtin.SlashCommandContext;
+import com.slack.api.bolt.handler.builtin.SlashCommandHandler;
+import com.slack.api.bolt.jetty.SlackAppServer;
+import com.slack.api.bolt.request.builtin.SlashCommandRequest;
+import com.slack.api.bolt.response.Response;
 import com.slack.api.methods.MethodsClient;
 import com.slack.api.methods.SlackApiException;
 import com.slack.api.methods.request.chat.ChatPostMessageRequest;
@@ -11,13 +17,10 @@ import java.io.IOException;
 public class HelloServiceApp
 {
     public static void main(String[] args) throws SlackApiException, IOException {
+        String token = "xoxb-2113917763184-2090639650883-cZq4G0SR5sbW2BUNmx9KsFF0";
         Slack slack = Slack.getInstance();
-
-        String token = "xoxb-2113917763184-2090639650883-9QWG6VKH1Dt8UW155AazAzgo";
-
         MethodsClient methods = slack.methods(token);
-        ChatPostMessageRequest request = ChatPostMessageRequest.builder().channel("#random").text(":wave: Hi! there!").build();
-
+        ChatPostMessageRequest request = ChatPostMessageRequest.builder().channel("#random").text(":wave: Hi there!").build();
         try
         {
             ChatPostMessageResponse response = methods.chatPostMessage(request);
@@ -25,7 +28,19 @@ public class HelloServiceApp
         }
         catch (Exception e)
         {
-            System.out.println("Ohoo there is an error!");
+            System.out.println("there is an error!");
         }
+        App app = new App();
+        AppSlashCommandHandler appSlashCommandHandler = new AppSlashCommandHandler();
+        app.command("/hi", appSlashCommandHandler);
+        SlackAppServer slackAppServer = new SlackAppServer(app, "/slack/events", 8080);
+        try {
+            slackAppServer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
+
+
 }
