@@ -17,7 +17,7 @@ import java.io.IOException;
 public class HelloServiceApp
 {
     public static void main(String[] args) throws SlackApiException, IOException {
-        String token = "xoxb-2113917763184-2090639650883-cZq4G0SR5sbW2BUNmx9KsFF0";
+        String token = "xoxb-2113917763184-2090639650883-QcDUcMZ0SLgjKvXxvsnuWP9j";
         Slack slack = Slack.getInstance();
         MethodsClient methods = slack.methods(token);
         ChatPostMessageRequest request = ChatPostMessageRequest.builder().channel("#random").text(":wave: Hi there!").build();
