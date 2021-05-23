@@ -10,6 +10,7 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     implementation 'com.slack.api:bolt:1.8.0'
     implementation 'com.slack.api:bolt-servlet:1.8.0'
@@ -35,4 +36,19 @@ jar {
                 'Main-Class': 'helloservice.HelloServiceApp'
         )
     }
+   // classifier = 'all'
+   // baseName = 'MyJar'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+           {
+                exclude "META-INF/*.SF"
+                exclude "META-INF/*.DSA"
+                exclude "META-INF/*.RSA"
+                exclude "META-INF/*"
+                exclude "about.html"
+            }
+    /*from {
+        configurations.runtimeClasspath.collect {it.isDirectory() ? it : zipTree(it)}
+    }*/
 }
