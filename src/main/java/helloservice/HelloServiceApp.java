@@ -15,15 +15,9 @@ public class HelloServiceApp
 {
     public static void main(String[] args)
         {
-            System.out.println("hey!");
             App app = new App();
-          //  AppSlashCommandHandler appSlashCommandHandler = new AppSlashCommandHandler();
-            app.command("/hi", new SlashCommandHandler() {
-                @Override
-                public Response apply(SlashCommandRequest slashCommandRequest, SlashCommandContext context) throws IOException, SlackApiException {
-                    return context.ack("Hey!");
-                }
-            });
+            AppSlashCommandHandler appSlashCommandHandler = new AppSlashCommandHandler();
+            app.command("/hi", appSlashCommandHandler);
             int port = Integer.getInteger(System.getenv("PORT"));
             System.out.println(port);
             SlackAppServer server = new SlackAppServer(app, "/slack/events", port);
