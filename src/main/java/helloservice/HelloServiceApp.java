@@ -15,6 +15,7 @@ public class HelloServiceApp
 {
     public static void main(String[] args)
         {
+            System.out.println("hey!");
             App app = new App();
           //  AppSlashCommandHandler appSlashCommandHandler = new AppSlashCommandHandler();
             app.command("/hi", new SlashCommandHandler() {
@@ -23,8 +24,11 @@ public class HelloServiceApp
                     return context.ack("Hey!");
                 }
             });
-            SlackAppServer server = new SlackAppServer(app, System.getenv("PORT"));
+            int port = Integer.getInteger(System.getenv("PORT"));
+            System.out.println(port);
+            SlackAppServer server = new SlackAppServer(app, "/slack/events", port);
             try {
+                System.out.println("hey there!");
                 server.start();
             } catch (Exception e) {
                 e.printStackTrace();
