@@ -11,12 +11,12 @@ public class HelloServiceApp
             App app = new App();
             AppSlashCommandHandler appSlashCommandHandler = new AppSlashCommandHandler();
             app.command("/hi", appSlashCommandHandler);
-            /*SlackAppServer server = new SlackAppServer(app, 8080);
+            SlackAppServer server = new SlackAppServer(app, 8080);
             try {
                 server.start();
             } catch (Exception e) {
                 e.printStackTrace();
-            }*/
+            }
 
         }
 
