@@ -23,7 +23,7 @@ public class HelloServiceApp
                     return context.ack("Hey!");
                 }
             });
-            SlackAppServer server = new SlackAppServer(app);
+            SlackAppServer server = new SlackAppServer(app, System.getenv("PORT"));
             try {
                 server.start();
             } catch (Exception e) {
